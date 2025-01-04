@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa" style="direction: rtl;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تاییدیه سفارش</title>
+    <style>
+        @font-face {
+            font-family: 'Vazir';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/v30.1.0/dist/Vazir.woff2') format('woff2');
+        }
+        body {
+            font-family: 'Vazir', Tahoma, Arial, sans-serif;
+            background-color: #f9f9f9;
+            direction: rtl;
+            text-align: right;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.8;
+            color: #444;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-link {
+            color: #888;
+        }
+    </style>
+</head>
+<body style="direction: rtl;">
+    <h1>تاییدیه سفارش </h1>
+    <p>سفارش شما با موفقیت ثبت شد.</p>
+    <p><strong>نام:</strong> {{ 'نام درخواست کننده' }}</p>
+    <p><strong>عنوان آدرس:</strong> {{ 'عنوان آدرس' }}</p>
+    <p><strong>جزئیات آدرس:</strong> {{ 'جزئیات آدرس' }}</p>
+    <p>
+        <strong>لینک نقشه:</strong>
+        {% if address.location_link %}
+        <a href="{{ 'لینک نقشه' }}" target="_blank">باز کردن نقشه</a>
+        {% else %}
+        <span class="no-link">لینکی در آدرس ثبت نشده است</span>
+        {% endif %}
+    </p>
+    <p><strong>خدمت درخواستی:</strong> {{ 'خدمت درخواستی' }}</p>
+    <p><strong>زمان ثبت سفارش:</strong> {{ 'زمان ثبت سفارش' }}</p>
+</body>
+</html>

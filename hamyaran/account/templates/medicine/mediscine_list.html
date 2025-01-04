@@ -1,0 +1,59 @@
+{% extends "registration/base.html" %}
+{% load base_tags %}
+
+{% block title %}{% block title-meta %}
+  دارو ها
+{% endblock %}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">دارو ها</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          {% if object_list %}
+          <table class="table table-head-fixed">
+            <thead>
+              <tr>
+                <th> نام دارو</th>
+                <th>توضیحات</th>
+                <th>دز</th>
+                <th>{% if user.is_superuser %}ایجاد شده توسط{% endif %}</th>
+                <th>نحوه مصرف</th>
+                <th>ایجاد شده در تاریخ:</th>
+                <th>قابلیت استفاده</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for medicine in medicines %}
+                <tr>
+                  <td>{% if user.is_superuser or medicine.created_by == user %}<a href="{% url 'account:medicine-update' pk=medicine.pk %}">{{ medicine.name }}</a>{% endif %}</td>
+                  <td>{{ medicine.description|first_n_words:5 }}</td>
+                  <td>{{ medicine.dose}}</td>
+                  <td>{% if user.is_superuser %}{{ medicine.created_by }}{% endif %}</td>
+                  <td>{{ medicine.useage_way }}</td>                  
+                  <td>{{ medicine.jcreated_at }}</td>
+                  <td>
+                    {% if medicine.is_active %}
+                      <i class="nav-icon fas fa-check"></i>
+                    {% else %}
+                      <i class="nav-icon fas fa-ban"></i>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+            <p class="mx-2 my-2">هیچ دارویی وجود ندارد.</p>
+          {% endif %}
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div> 
+{% endblock main %}

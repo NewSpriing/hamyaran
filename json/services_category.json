@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "position": 1,
+        "slug": "care",
+        "status": 1,
+        "title": "پزشکی - پرستاری"
+    },
+    {
+        "id": 2,
+        "position": 2,
+        "slug": "beauty",
+        "status": 1,
+        "title": "پزشکی - زیبایی"
+    },
+    {
+        "id": 3,
+        "position": 3,
+        "slug": "clinical",
+        "status": 1,
+        "title": "مشاوره و کلینیکال"
+    }
+]

@@ -1,0 +1,49 @@
+
+{% extends "registration/base.html" %}
+
+{% block title %}{% block title-meta %}
+ پیامهای من
+{% endblock %}{% endblock %}
+
+{% block main %}
+  </ul>
+  <div class="col-md-12">
+    <div class="card card-primary card-outline">
+      <!-- /.card-header -->
+      <div class="card-body p-0">
+        <div class="table-responsive mailbox-messages">
+          <table class="table table-hover table-striped">
+            <thead style="background-color: lightblue">
+              <tr>
+                <th>پیام</th>
+                <th style="width: 20%;">تاریخ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for notification in notifications %}
+                <tr>
+                  <td class="mailbox-subject">
+                    {{ notification.message|safe|linebreaks}}
+                  </td>
+                  <td class="mailbox-date">
+                    {{ notification.jcreated_at|linebreaks }}
+                  </td>
+                  <td>
+                    {% if not notification.is_read %}<i class="fas fa-exclamation"></i>{% endif %}
+                  </td>
+              {% empty %}  
+                  <td colspan='7' class="mx-2 my-2"><p>هیچ پیامی ندارید</p></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- /.table -->
+        </div>
+        <!-- /.mail-box-messages -->
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+{% endblock main %}

@@ -1,0 +1,460 @@
+:root {
+  --main-color: #075d72;
+  --secondary-color: #aee0ec;
+  --lighter-color: #e8e8e7;
+  --light-color: #b0b0c0;
+  --dark-color: #1d444e;
+  --bar-width: 30px;
+  --bar-height: 2px;
+  --humburger-gap: 7px;
+  --foreground: whitesmoke;
+  --background: whitesmoke;
+  --hamburger-margin: 8px;
+  --animation-timing: 350ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--humburger-gap) * 2);
+  --font-smaller: 14px;
+  --font-bigger: 20px;
+  --rich-black-fogra-29: hsl(222, 44%, 8%);
+  --ff-rubik: 'Rubik', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,::before,::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(0, 87, 97);
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  min-height: 100vh;
+  color: var(--dark-color);
+}
+
+.navbar {
+  margin-top: 40px;
+  padding: 0;
+}
+
+.navbar a {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: whitesmoke;
+  text-decoration: none;
+  padding: .75rem 0;
+  display: block;
+  text-align: right;
+  padding-right: 15px;
+  transition: .3s;
+}
+
+
+.sidebarlogo {
+  position: relative;
+  padding: 3px ;
+}
+
+.sidebarlogo a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+
+.sidebarlogo a h3 {
+  margin-top: 8px;
+  margin-right: 6px;
+}
+
+
+.navbar a:hover {
+  transform-origin: right;
+  transform: translateX(-5px);
+}
+
+
+.hamburger-menu {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  display: flex;
+  flex-direction: column;
+  gap: var(--humburger-gap);
+  width: max-content;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 990;
+  cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+  --foreground: whitesmoke;
+  --background: whitesmoke;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: left;
+  transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: end;
+  position: fixed;
+  max-width: 300px;
+  padding: 0;
+  top: 0;
+  right: 0;
+  transition: translate var(--animation-timing);
+  translate: 400%;
+  background: var(--rich-black-fogra-29);
+  box-shadow: 0 0 30px rgba(0,0,0,.5);
+  color: whitesmoke;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  translate: 0;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+  border: 8px solid var(--lighter-color);
+  border-radius: 15px;
+  background-color: #faf9ff;
+}
+/* ==> Progress */
+.form-box .progress {
+  position: relative;
+  padding: 1em;
+}
+
+.logo {
+  font-size: 1.75em;
+  font-weight: 800;
+  color: var(--dark-color);
+  padding: 40px 48px;
+  text-align: center;
+}
+
+.logo span {
+  color: var(--main-color);
+}
+
+/* ==> Progress Steps */
+
+.progress ul.progress.steps {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.progress ul.progress.steps li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.progress ul.progress.steps li > span {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-smaller);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1em;
+  border-radius: 50%;
+  background-color: var(--lighter-color);
+  z-index: 1;
+}
+
+.progress ul.progress.steps li.active > span {
+  color: white;
+  background-color: var(--main-color);
+  border: 4px solid var(--secondary-color);
+  z-index: 1;
+}
+
+.progress ul.progress.steps li p span {
+  font-size: var(--font-smaller);
+  color: var(--light-color);
+  display: none;
+}
+
+.progress ul li p {
+  position: absolute;
+  top: -2em;
+  font-size: 12px;
+}
+/* ==> Form */
+
+.form-box form {
+  width: 100%;
+  padding: 3em 1em;
+  background-color: white;
+  border-radius: 30px 30px 15px 15px;
+}
+
+form > div {
+  max-width: 400px;
+  margin: 0 auto;
+}
+form > div p {
+  color: var(--light-color);
+  margin-bottom: 2em;
+}
+
+form > div >:not(.checkbox) {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+form :where(input,select) {
+  height: 40px;
+  padding: 0 1em;
+  border-radius: 7px;
+  outline-color: var(--secondary-color);
+  border: 1px solid var(--lighter-color);
+  background-color: transparent;
+}
+
+form label {
+  font-size: var(--font-smaller);
+  margin-bottom: 00.5em;
+  font-weight: 600;
+}
+
+form .grouping {
+  display: flex;
+}
+
+form .grouping input {
+  max-width: 70px;
+  text-align: center;
+  margin-right: 1em;
+}
+
+form .checkbox input {
+  height: auto;
+}
+
+form > div:not(.btn-group) {
+  display: none;
+  -webkit-animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+
+form > div.active {
+  display: block;
+}
+
+form > div .bg-svg {
+  width: 60px;
+  height: 50px;
+}
+
+form > .form-one .bg-svg {
+  background: url(assets/#);
+}
+form > .form-two .bg-svg {
+  background: url(assets/#);
+}
+form > .form-three .bg-svg {
+  background: url(assets/#);
+}
+
+/* ==> Button */
+/* we will hide form elements so we can see button styling */
+
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.btn-group [class*="btn-"] {
+  background-color: var(--main-color);
+  color: white;
+  padding: 1em 2.5em;
+  border: 4px solid var(--secondary-color);
+  border-radius: 30px;
+  cursor: pointer;
+  -webkit-transition: background-color .3s, border-color .3s ease-out;
+  transition: background-color .3s, border-color .3s ease-out;
+}
+
+.btn-group [class*="btn-"]:disabled {
+  background-color: var(--light-color);
+  border-color: var(--lighter-color);
+  cursor: text;
+}
+
+.btn-group [class*="btn-"]:hover:not(:disabled) {
+  background-color: var(--dark-color);
+  border-color: var(--light-color);
+}
+
+
+.btn-group .btn-submit,
+.form-three.active ~ .btn-group .btn-next {
+  display: none;
+}
+
+.form-three.active ~ .btn-group .btn-submit {
+  display: block;
+}
+
+.form-three.active ~ .btn-group {
+  justify-content: space-between;
+}
+
+
+
+::placeholder {
+  color: var(--light-color);
+}
+
+
+@media screen and (min-width: 768px) {
+  .form-box {
+    flex-direction: row;
+  }
+  .form-box .progress {
+    flex: 1 0 35%;
+    min-width: 300px;
+    padding: 3em;
+  }
+  .logo {
+    margin: -48px -48px 48px;
+  }
+  .progress ul.progress.steps {
+    flex-direction: column;
+    gap: 0;
+  }
+  .progress ul.progress-steps li:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    width: 2px;
+    height: 65px;
+    background-color: var(--lighter-color);
+  }
+  .form-box form {
+    padding: 3em;
+    border-radius: 0 15px 15px 0;
+  }
+
+  .progress ul li p {
+    position: relative;
+    top: auto;
+    font-size: inherit;
+  }
+
+  .progress ul.progress-steps li p span {
+    display: block;
+  }
+}

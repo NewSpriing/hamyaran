@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" style="direction: rtl;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفارش جدید</title>
+    <style>
+        @font-face {
+            font-family: 'Vazir';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/v30.1.0/dist/Vazir.woff2') format('woff2');
+        }
+        body {
+            font-family: 'Vazir', Tahoma, Arial, sans-serif;
+            background-color: #f9f9f9;
+            direction: rtl;
+            text-align: right;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.8;
+            color: #444;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .no-link {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>سفارش جدید ثبت شد</h1>
+    <p><strong>نام درخواست کننده:</strong> {{ user }}</p>
+    <p><strong>عنوان آدرس:</strong> {{ address_title }}</p>
+    <p><strong>جزئیات آدرس:</strong> {{ address_details }}</p>
+    <p>
+        <strong>لینک نقشه:</strong>
+        {% if map %}
+        <a href="{{ map }}" target="_blank">باز کردن نقشه</a>
+        {% else %}
+        <span class="no-link">لینکی در آدرس ثبت نشده است</span>
+        {% endif %}
+    </p>
+    <p><strong>خدمت درخواستی:</strong> {{ service }}</p>
+    <p><strong>شرایط ویژه:</strong> {{ special_condition }}</p>
+    <p><strong>زمان ترجیحی:</strong> {{ preferred_time }}</p>
+    <p><strong>زمان ثبت سفارش:</strong> {{ created_at }}</p>
+</body>
+</html>

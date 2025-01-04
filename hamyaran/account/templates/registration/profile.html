@@ -1,0 +1,204 @@
+{% extends "registration/base.html" %}
+{% load crispy_forms_tags %}
+{% load base_tags %}
+
+{% block title-meta %}
+  پروفایل
+{% endblock %}
+
+{% block title %}
+{% if user.get_full_name %}« {{user.get_full_name}} »{% else %}کاربر{% endif %} عزیز، خوش آمدید
+{% endblock %}
+
+{% block main %}
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title mb-0 float-left">اطلاعات فردی</h3>
+  </div>
+  <div class="card-body">
+    <form method='post'>
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.username|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.email|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.first_name|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.last_name|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.gender|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.phone|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-4 mb-0">
+          {{ form.birthyear|as_crispy_field }}
+        </div>
+        <div class="myfont form-group col-md-4 mb-0">
+          {{ form.birthmonth|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-4 mb-0">
+          {{ form.birthday|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.disease|as_crispy_field }}
+        </div>
+        {% if user.is_superuser %}
+          <div class="form-group col-md-6 mb-0">
+            {{ form.special_user|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.is_colleague|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-12 mb-0">
+          </div>
+        {% endif %}
+        {% if user.is_special_user == 'بله' %}
+          <div class="form-group col-md-12 mb-0">
+          </div>
+          <div class="info-box mb-3 bg-success">
+            <span class="info-box-icon"><i class="far fa-star"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">اشتراک ویژه تا:</span>
+              <span class="info-box-number">{{user.jspecial_user}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+        {% endif %}
+      </div>  
+      <button class="btn btn-success mb-2">ویرایش اطلاعات</button>
+      <button class="btn btn-warning mb-2"><a href="{% url 'password_change' %}" style='color: #000; text-decoration: none;'>تغییر گذرواژه</a></button>
+      <thead>
+    </form>
+    <br>
+    <div class="card card-info">
+      <!-- /.card-header -->  
+      <div class="card-header">
+        <h3 class="card-title mb-0 float-left">آدرس ها</h3>
+        <div class="float-right">
+          <a href="{% url 'account:address_create' %}" style='color: whitesmoke; text-decoration: none; font-size: 1.5rem'><i class="fas fa-plus"></i></a>
+        </div>
+      </div>  
+      <div class="card-body table-responsive p-0">
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>عنوان آدرس</th>
+              <th>جزئیات</th>
+              <th>لینک گوگل مپ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for address in addresses %}
+            <tr>
+              <td><a href="{% url 'account:address_update' address.pk %}">{{address.title}}</a></td>
+              <td>{{address.detail|safe|first_n_words:5}}</td>
+              <td>
+                {% if address.location_link %}
+                <button class="btn btn-info"><a target="_blank" href="{{address.location_link}}" style="text-decoration: none; font-size: 25px; border-radius: 50%; color: whitesmoke;" ><i class="fas fa-map-marked-alt"></i></a></button>  
+                {% else %}
+                  <p>بدون لینک</p>
+                {% endif %}
+              </td>
+              <td>
+                <a class='badge badge-danger' href="{% url 'account:address_delete' pk=address.pk %}" style="padding: 10px 30px;">حذف</a>
+              </td>
+            </tr>
+              {% empty %}
+                <td>هیچ آدرسی ثبت نشده است.</td>
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <div class="card card-info">
+      <!-- /.card-header -->
+      <div class="card-header">
+        <h3 class="card-title mb-0 float-left">اعضا خانواده</h3>
+        <div class="float-right">
+          <a href="{% url 'account:family_create' %}" style='color: whitesmoke; text-decoration: none; font-size: 1.5rem'><i class="fas fa-plus"></i></a>
+        </div>
+      </div>  
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th>نسبت</th>
+              <th>شماره</th>
+              <th>جنسیت</th>
+              <th>سن</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for family_member in family_members %}
+              <tr>
+                <td><a href="{% url 'account:family_update' family_member.pk %}">{{family_member.name}}</a></td>
+                <td>{{family_member.relation}}</td>
+                <td><a href="tel:{{family_member.phone}}">{{family_member.phone}}</a></td>
+                <td>{{family_member.gender}}</td>
+                <td>{{family_member.age}}</td>
+                <td>{% if family_member.is_birth_day %}<i class="fas fa-birthday-cake"></i>{% endif %}</td>
+                <td>
+                  <a class='badge badge-danger' href="{% url 'account:family_delete' pk=family_member.pk %}" style="padding: 10px 30px;">حذف</a>
+                </td>
+              </tr>
+            {% empty %}
+              <td colspan="7">هیچ یک از اعضا خانواده ثبت نشده است </td>
+            {% endfor %}
+          </tbody>
+        </table>  
+      </div>  
+    </div>  
+    <div class="card card-info">
+      <!-- /.card-header -->
+      <div class="card-header">
+        <h3 class="card-title mb-0 float-left">حیوانات خانگی</h3>
+        <div class="float-right">
+          <a href="{% url 'account:pet_create' %}" style='color: whitesmoke; text-decoration: none; font-size: 1.5rem'><i class="fas fa-plus"></i></a>
+        </div>
+      </div>  
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>نام</th>
+              <th>گونه</th>
+              <th>نژاد</th>
+              <th>جنسیت</th>
+              <th>سن</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pet in pets %}
+              <tr>
+                <td><a href="{% url 'account:pet_update' pet.pk %}">{{pet.name}}</a></td>
+                <td>{{ pet.type }}</td>
+                <td>{{ pet.race }}</td>
+                <td>{{ pet.gender }}</td>
+                <td>{{ pet.age }}</td>
+                <td>{% if pet.is_birth_day %}<i class="fas fa-birthday-cake"></i>{% endif %}</td>
+                <td>
+                  <a class='badge badge-danger' href="{% url 'account:pet_delete' pk=pet.pk %}" style="padding: 10px 30px;">حذف</a>
+                </td>
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="7">هیچ پتی ثبت نشده است </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>  
+      </div>  
+    </div>  
+  </div>
+</div>  
+{% endblock main %}

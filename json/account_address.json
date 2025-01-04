@@ -1,0 +1,23 @@
+[
+    {
+        "detail": "شهرک اندیشه - فاز 1 - بلوار شهید مدرس - نبش ارغوان دوم - پلاک 10 - واحد 8",
+        "id": 1,
+        "location_link": null,
+        "owner_id": 29,
+        "title": "منزل"
+    },
+    {
+        "detail": "طرشت",
+        "id": 2,
+        "location_link": "https://maps.app.goo.gl/EpptHFVmzCCefsn26",
+        "owner_id": 29,
+        "title": "دفتر"
+    },
+    {
+        "detail": "شهرک اندیشه - فاز 1 - شقایق 14 - پلاک 19",
+        "id": 3,
+        "location_link": "https://maps.app.goo.gl/3Ai1wcx3woZmfJ9s8",
+        "owner_id": 1,
+        "title": "خانه"
+    }
+]

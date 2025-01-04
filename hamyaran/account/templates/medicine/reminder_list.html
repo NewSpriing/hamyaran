@@ -1,0 +1,46 @@
+{% extends "registration/base.html" %}
+
+{% block title %}{% block title-meta %}
+  یادآوری ها
+{% endblock %}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">یادآوری ها</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          {% if object_list %}
+          <table class="table table-head-fixed">
+            <thead>
+              <tr>
+                <th> نام دارو</th>
+                <th>زمان مصرف</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for reminder in reminders %}
+                <tr>
+                  <td> 
+                    <p>{{ reminder.prescription.medicine.name }}</p>
+                  </td>
+                  <td>
+                    <p>{{ reminder.jreminder_time }}</p>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+            <p class="mx-2 my-2">هیچ یادآوری فعالی وجود ندارد.</p>
+          {% endif %}
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div> 
+{% endblock main %}

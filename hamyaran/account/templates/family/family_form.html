@@ -1,0 +1,46 @@
+{% extends "registration/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% block title-meta %}
+  اعضا خانواده
+{% endblock %}{% endblock %}
+
+{% block main %}
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title mb-0 float-left">{% if object %}ویرایش عضو{% else %}افزودن عضو{% endif %}</h3>
+  </div>
+  <div class="card-body">
+    <form method='post'>
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.name|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0 myfont">
+          {{ form.gender|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0 myfont">
+          {{ form.relation|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.phone|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-4 mb-0">
+          {{ form.birthyear|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-4 mb-0 myfont">
+          {{ form.birthmonth|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-4 mb-0">
+          {{ form.birthday|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0 myfont">
+          {{ form.disease|as_crispy_field }}
+        </div>
+      </div>  
+      <button type="submit" class="btn btn-success">ثبت عضو</button>
+    </form>
+  </div>
+</div>  
+{% endblock main %}

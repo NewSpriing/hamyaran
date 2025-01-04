@@ -1,0 +1,12 @@
+<div class="cat-filter">
+  <ul class="category-filter">
+    <li>
+      <a href="{% url 'services:services' %}">همه</a>
+    </li>
+    {% for cat in category %}
+    <li class="filter-item">
+      <a href="{% url 'services:category' cat.slug %}">{{cat.title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

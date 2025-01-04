@@ -1,0 +1,50 @@
+{% extends "registration/base.html" %}
+
+{% block title %}{% block title-meta %}
+  نسخه ها
+{% endblock %}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">نسخه ها</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          {% if object_list %}
+          <table class="table table-head-fixed">
+            <thead>
+              <tr>
+                <th> نام دارو</th>
+                <th>تعداد مصرف</th>
+                <th>فاصله زمانی</th>
+                <th>{% if user.is_superuser or user.is_colleague %}بیمار{% endif %}</th>
+                <th>{% if user.is_superuser %}درمانگر{% endif %}</th>
+                <th>ایجاد شده در تاریخ:</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for prescription in prescriptions %}
+                <tr>
+                  <td>{{ prescription.medicine }}</td>
+                  <td>{{ prescription.qty }}</td>
+                  <td>{{ prescription.interval}}</td>
+                  <td>{% if user.is_superuser or user.is_colleague %}{{ prescription.user }}{% endif %}</td>
+                  <td>{% if user.is_superuser %}{{ prescription.prescribed_by }}{% endif %}</td>                  
+                  <td>{{ prescription.jcreated_at }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+            <p class="mx-2 my-2">هیچ نسخه ای وجود ندارد.</p>
+          {% endif %}
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div> 
+{% endblock main %}

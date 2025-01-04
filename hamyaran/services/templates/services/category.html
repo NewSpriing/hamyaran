@@ -1,0 +1,143 @@
+{% load static %}
+{% load humanize %}
+{% load base_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "services/assets/css/services-list.css" %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <title>لیست خدمات</title>
+</head>
+<body>
+  <header class="header" data-header>
+    <div class="container">
+      <div class="header-logo">
+        <a href="/" class="logo">
+          <img src="{% static "services/assets/images/2-75x75.png" %}" width="75" height="54" alt="همیاران سلامت">
+          <h2>همیاران سلامت</h2>
+        </a>
+      </div>
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <div class="header-logo">
+            <a href="/" class="logo">
+              <img src="{% static "services/assets/images/2-75x75.png" %}" width="75" height="54" alt="همیاران سلامت">
+            </a>
+            <h2>همیاران سلامت</h2>
+          </div>
+          <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">صفحه اصلی</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">درمانگران</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">خدمات</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">مقالات</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">ارتباط با ما</a>
+          </li>
+
+        </ul>
+
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="#" class="btn has-before title-md">نصب نرم افزار</a>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+  <main>
+   <section class="wrap">
+    <form>
+      <button type="submit">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <input type="text" name="" id="search-item" placeholder="جستجو خدمات" onkeyup="search()">
+    </form>
+    <div class='filter'>
+    {% sidebar_category_filter %}
+    </div>
+    <!--    <br> -->
+    <div class="service">
+      <h3 class="alert alert-primary text-center">{{category.title}}</h3>
+      <br>
+  {% comment %}     {% for service in category.services.available %} {% endcomment %}
+      {% for service in object_list %}
+        <article class="list text-justify">
+          <div class="name">
+          <h4>{{service.name}}</h4>
+          </div>
+          <div class="category">
+          <h4>{{service.category}}</h4>
+          </div>
+          <div class="cost">
+          <h4>{{ service.cost|floatformat:0|intword }}</h4>
+          </div>
+        </article>
+      {% empty %}
+        <h2>موردی یافت نشد</h2>
+      {% endfor %}
+      {% if is_paginated %}
+        <div class="pagination">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+              <a href="?page=1">نخست</a>
+              <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+            {% endif %}
+            <span class="current">
+              صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+            </span>
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">آخرین</a>
+            {% endif %}    
+          </span>
+        </div>
+      {% endif %}
+    </div>
+   </section>
+  </main>
+  <script src="{% static "services/assets/js/script.js"%}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="{% static "/assets/js/services-list.js" %}"></script>
+</body>
+</html>

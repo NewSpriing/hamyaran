@@ -1,0 +1,470 @@
+[
+    {
+        "app": "contenttypes",
+        "applied": "2024-12-09 08:22:25.298894",
+        "id": 1,
+        "name": "0001_initial"
+    },
+    {
+        "app": "contenttypes",
+        "applied": "2024-12-09 08:22:25.452903",
+        "id": 2,
+        "name": "0002_remove_content_type_name"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:25.681916",
+        "id": 3,
+        "name": "0001_initial"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:25.847925",
+        "id": 4,
+        "name": "0002_alter_permission_name_max_length"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:25.986933",
+        "id": 5,
+        "name": "0003_alter_user_email_max_length"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.075938",
+        "id": 6,
+        "name": "0004_alter_user_username_opts"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.186945",
+        "id": 7,
+        "name": "0005_alter_user_last_login_null"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.293951",
+        "id": 8,
+        "name": "0006_require_contenttypes_0002"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.397957",
+        "id": 9,
+        "name": "0007_alter_validators_add_error_messages"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.498963",
+        "id": 10,
+        "name": "0008_alter_user_username_max_length"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.719975",
+        "id": 11,
+        "name": "0009_alter_user_last_name_max_length"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.811981",
+        "id": 12,
+        "name": "0010_alter_group_name_max_length"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:26.930987",
+        "id": 13,
+        "name": "0011_update_proxy_permissions"
+    },
+    {
+        "app": "auth",
+        "applied": "2024-12-09 08:22:27.019992",
+        "id": 14,
+        "name": "0012_alter_user_first_name_max_length"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-09 08:22:27.263006",
+        "id": 15,
+        "name": "0001_initial"
+    },
+    {
+        "app": "admin",
+        "applied": "2024-12-09 08:22:27.474018",
+        "id": 16,
+        "name": "0001_initial"
+    },
+    {
+        "app": "admin",
+        "applied": "2024-12-09 08:22:27.606026",
+        "id": 17,
+        "name": "0002_logentry_remove_auto_add"
+    },
+    {
+        "app": "admin",
+        "applied": "2024-12-09 08:22:27.737033",
+        "id": 18,
+        "name": "0003_logentry_add_action_flag_choices"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:27.830039",
+        "id": 19,
+        "name": "0001_initial"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:27.956046",
+        "id": 20,
+        "name": "0002_service_therapist"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.084053",
+        "id": 21,
+        "name": "0003_category_alter_service_options_alter_service_cost_and_more"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.298066",
+        "id": 22,
+        "name": "0004_alter_service_title"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.432073",
+        "id": 23,
+        "name": "0005_service_category_alter_service_title"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.624084",
+        "id": 24,
+        "name": "0006_remove_service_title"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.740091",
+        "id": 25,
+        "name": "0007_alter_service_options_service_status_and_more"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:28.887099",
+        "id": 26,
+        "name": "0008_alter_category_options_alter_service_options_and_more"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-09 08:22:29.004106",
+        "id": 27,
+        "name": "0009_alter_service_name"
+    },
+    {
+        "app": "sessions",
+        "applied": "2024-12-09 08:22:29.218118",
+        "id": 28,
+        "name": "0001_initial"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-09 08:41:07.675090",
+        "id": 29,
+        "name": "0002_user_is_colleague_user_special_user"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-09 14:28:22.164755",
+        "id": 30,
+        "name": "0003_alter_user_is_active_alter_user_is_staff"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-10 21:09:18.126003",
+        "id": 31,
+        "name": "0004_alter_user_email_alter_user_is_active_and_more"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-12 20:09:14.249089",
+        "id": 32,
+        "name": "0005_user_created_time_address"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-12 20:54:11.694374",
+        "id": 33,
+        "name": "0006_alter_address_location_link"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-12 21:14:56.155553",
+        "id": 34,
+        "name": "0007_alter_address_owner"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-13 10:11:53.856933",
+        "id": 35,
+        "name": "0008_user_birthday_user_birthmonth_user_birthyear"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-13 13:53:01.399121",
+        "id": 36,
+        "name": "0009_user_disease_user_gender_user_phone_and_more"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-13 20:07:06.972935",
+        "id": 37,
+        "name": "0010_servicerequest"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-14 14:20:05.951838",
+        "id": 38,
+        "name": "0011_order_alter_service_options_delete_servicerequest_and_more"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-15 12:08:54.174395",
+        "id": 39,
+        "name": "0010_notification"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-15 12:08:54.328404",
+        "id": 40,
+        "name": "0012_alter_order_address_alter_order_preferred_time_and_more"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-15 23:35:59.455346",
+        "id": 41,
+        "name": "0013_rename_created_time_order_created_time"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 18:02:18.597782",
+        "id": 42,
+        "name": "0011_medicine_prescription_reminder"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 19:22:41.785653",
+        "id": 43,
+        "name": "0012_alter_prescription_start_date"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 19:26:21.900243",
+        "id": 44,
+        "name": "0013_alter_prescription_start_date"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 19:42:30.497643",
+        "id": 45,
+        "name": "0014_alter_prescription_interval"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 19:54:38.518284",
+        "id": 46,
+        "name": "0015_prescription_qty"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 20:46:51.471478",
+        "id": 47,
+        "name": "0016_alter_prescription_start_date"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-17 20:52:23.201452",
+        "id": 48,
+        "name": "0017_alter_prescription_start_date"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-18 00:40:50.201448",
+        "id": 49,
+        "name": "0018_reminder_device_id"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:50.439461",
+        "id": 50,
+        "name": "0001_initial"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:50.537467",
+        "id": 51,
+        "name": "0002_auto_20160106_0850"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:50.727478",
+        "id": 52,
+        "name": "0003_wnsdevice"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:50.892487",
+        "id": 53,
+        "name": "0004_fcm"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.077498",
+        "id": 54,
+        "name": "0005_applicationid"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.272509",
+        "id": 55,
+        "name": "0006_webpushdevice"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.426518",
+        "id": 56,
+        "name": "0007_uniquesetting"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.560525",
+        "id": 57,
+        "name": "0008_webpush_add_edge"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.669532",
+        "id": 58,
+        "name": "0009_alter_apnsdevice_device_id"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.801539",
+        "id": 59,
+        "name": "0010_alter_gcmdevice_options_and_more"
+    },
+    {
+        "app": "push_notifications",
+        "applied": "2024-12-18 00:40:51.992550",
+        "id": 60,
+        "name": "0011_alter_apnsdevice_id_alter_gcmdevice_id_and_more"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-19 00:32:49.998244",
+        "id": 61,
+        "name": "0019_alter_user_birthday_alter_user_birthmonth_and_more"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-19 03:23:43.076687",
+        "id": 62,
+        "name": "0020_pet_race_pet_type"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-19 03:31:11.668345",
+        "id": 63,
+        "name": "0021_alter_pet_owner"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-20 00:35:38.233703",
+        "id": 64,
+        "name": "0022_alter_pet_options_familymember"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-20 21:54:44.590805",
+        "id": 65,
+        "name": "0023_rename_is_taken_reminder_is_read"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-23 21:38:02.996926",
+        "id": 66,
+        "name": "0014_order_order_for"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-24 02:04:13.204370",
+        "id": 67,
+        "name": "0015_order_order_date"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-25 00:52:38.991569",
+        "id": 68,
+        "name": "0016_alter_service_cost"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-25 04:03:12.871550",
+        "id": 69,
+        "name": "0017_alter_order_order_date"
+    },
+    {
+        "app": "services",
+        "applied": "2024-12-25 05:35:23.337874",
+        "id": 70,
+        "name": "0018_alter_order_order_date"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-29 03:41:06.832701",
+        "id": 71,
+        "name": "0024_user_subscription_info_webpushsubscription"
+    },
+    {
+        "app": "account",
+        "applied": "2024-12-29 03:41:06.989710",
+        "id": 72,
+        "name": "0025_remove_user_subscription_info"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:07.324729",
+        "id": 73,
+        "name": "0001_initial"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:07.453736",
+        "id": 74,
+        "name": "0002_auto_20190603_0005"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:07.601745",
+        "id": 75,
+        "name": "0003_subscriptioninfo_user_agent"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:07.838758",
+        "id": 76,
+        "name": "0004_auto_20220831_1500"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:08.076772",
+        "id": 77,
+        "name": "0005_auto_20230614_1529"
+    },
+    {
+        "app": "webpush",
+        "applied": "2024-12-29 03:41:08.417791",
+        "id": 78,
+        "name": "0006_alter_subscriptioninfo_user_agent"
+    }
+]

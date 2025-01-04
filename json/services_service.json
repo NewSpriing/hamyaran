@@ -1,0 +1,90 @@
+[
+    {
+        "category_id": 1,
+        "cost": 500000.0,
+        "id": 1,
+        "name": "ویزیت آنلاین ( Whatsapp )",
+        "status": 1,
+        "therapist": 300000
+    },
+    {
+        "category_id": 1,
+        "cost": 1500000.0,
+        "id": 2,
+        "name": "آزمایشگاه",
+        "status": 1,
+        "therapist": 900000
+    },
+    {
+        "category_id": 1,
+        "cost": 3000000.0,
+        "id": 3,
+        "name": "سوند گذاری",
+        "status": 1,
+        "therapist": 1800000
+    },
+    {
+        "category_id": 1,
+        "cost": 3000000.0,
+        "id": 4,
+        "name": "سوند معده",
+        "status": 1,
+        "therapist": 1800000
+    },
+    {
+        "category_id": 1,
+        "cost": 1000000.0,
+        "id": 5,
+        "name": "تزریقات عضلانی و زیر جلدی",
+        "status": 1,
+        "therapist": 600000
+    },
+    {
+        "category_id": 1,
+        "cost": 3000000.0,
+        "id": 6,
+        "name": "سرم تراپی",
+        "status": 1,
+        "therapist": 1800000
+    },
+    {
+        "category_id": 1,
+        "cost": 3000000.0,
+        "id": 7,
+        "name": "پانسمان نوین و زخم دیابتی",
+        "status": 0,
+        "therapist": 1800000
+    },
+    {
+        "category_id": 1,
+        "cost": 1500000.0,
+        "id": 8,
+        "name": "فیزیوتراپی",
+        "status": 0,
+        "therapist": 900000
+    },
+    {
+        "category_id": 1,
+        "cost": 2500000.0,
+        "id": 10,
+        "name": "تست خواب",
+        "status": 0,
+        "therapist": 1500000
+    },
+    {
+        "category_id": 1,
+        "cost": 1500000.0,
+        "id": 11,
+        "name": "نوارقلب",
+        "status": 0,
+        "therapist": 900000
+    },
+    {
+        "category_id": 1,
+        "cost": 2500000.0,
+        "id": 12,
+        "name": "نوار مغز",
+        "status": 0,
+        "therapist": 1500000
+    }
+]

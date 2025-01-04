@@ -1,0 +1,69 @@
+{% extends "registration/base.html" %}
+
+{% block title %}{% block title-meta %}
+  مدیریت کاربر
+{% endblock %}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title mr-0">لیست کاربر ها</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed">
+            <thead>
+              <tr>
+                <th>نام کاربری</th>
+                <th>شماره تماس</th>
+                <th>نام کامل</th>
+                <th>سن</th>
+                <th>وضعیت همکاری</th>
+                <th>وضعیت فعالیت</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+                <tr>
+                  <td>
+                    {% if not user.is_superuser %}
+                      <a href="{% url 'account:user-edit' user.pk %}">{{user.username}}</a>
+                    {% else %}
+                      {{user.username}}
+                    {% endif %}
+                  </td>
+                  <td>{{user.phone}}</td>
+                  <td>{{user.get_full_name}}</td>
+                  <td>{{user.age}}</td>
+                  <td class='text text-center'>
+                    {% if user.is_colleague %}
+                      <i class="nav-icon fas fa-check"></i>
+                    {% else %}
+                      <i class="nav-icon fas fa-ban"></i>
+                    {% endif %}
+                  </td>
+                  <td style="text-align: center">
+                    {% if user.is_active %}
+                      <i class="nav-icon fas fa-check"></i>
+                    {% else %}
+                      <i class="nav-icon fas fa-ban"></i>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if not user.is_superuser %}
+                      <a class='badge badge-danger' href="{% url 'account:user-delete' pk=user.pk %}">حذف</a>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div> 
+{% endblock main %}

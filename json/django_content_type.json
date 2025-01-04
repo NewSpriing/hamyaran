@@ -1,0 +1,127 @@
+[
+    {
+        "app_label": "admin",
+        "id": 1,
+        "model": "logentry"
+    },
+    {
+        "app_label": "auth",
+        "id": 2,
+        "model": "permission"
+    },
+    {
+        "app_label": "auth",
+        "id": 3,
+        "model": "group"
+    },
+    {
+        "app_label": "contenttypes",
+        "id": 4,
+        "model": "contenttype"
+    },
+    {
+        "app_label": "sessions",
+        "id": 5,
+        "model": "session"
+    },
+    {
+        "app_label": "services",
+        "id": 6,
+        "model": "service"
+    },
+    {
+        "app_label": "services",
+        "id": 7,
+        "model": "category"
+    },
+    {
+        "app_label": "account",
+        "id": 8,
+        "model": "user"
+    },
+    {
+        "app_label": "account",
+        "id": 9,
+        "model": "address"
+    },
+    {
+        "app_label": "services",
+        "id": 10,
+        "model": "servicerequest"
+    },
+    {
+        "app_label": "services",
+        "id": 11,
+        "model": "order"
+    },
+    {
+        "app_label": "account",
+        "id": 12,
+        "model": "notification"
+    },
+    {
+        "app_label": "account",
+        "id": 13,
+        "model": "medicine"
+    },
+    {
+        "app_label": "account",
+        "id": 14,
+        "model": "reminder"
+    },
+    {
+        "app_label": "account",
+        "id": 15,
+        "model": "prescription"
+    },
+    {
+        "app_label": "push_notifications",
+        "id": 16,
+        "model": "apnsdevice"
+    },
+    {
+        "app_label": "push_notifications",
+        "id": 17,
+        "model": "gcmdevice"
+    },
+    {
+        "app_label": "push_notifications",
+        "id": 18,
+        "model": "wnsdevice"
+    },
+    {
+        "app_label": "push_notifications",
+        "id": 19,
+        "model": "webpushdevice"
+    },
+    {
+        "app_label": "account",
+        "id": 20,
+        "model": "pet"
+    },
+    {
+        "app_label": "account",
+        "id": 21,
+        "model": "familymember"
+    },
+    {
+        "app_label": "account",
+        "id": 22,
+        "model": "webpushsubscription"
+    },
+    {
+        "app_label": "webpush",
+        "id": 23,
+        "model": "group"
+    },
+    {
+        "app_label": "webpush",
+        "id": 24,
+        "model": "pushinformation"
+    },
+    {
+        "app_label": "webpush",
+        "id": 25,
+        "model": "subscriptioninfo"
+    }
+]

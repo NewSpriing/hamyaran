@@ -1,0 +1,20 @@
+@import url('https://v1.fontapi.ir/css/Vazir');
+
+body {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: Vazir !important;
+}
+
+.myfont, .focus-input100::after {font-family: Vazir !important;}
+
+.btn-show-pass {
+  right: initial;
+  left: 0;
+}
+
+.errors {
+  color: red;
+  background-color: rgb(255, 194, 194);
+  padding: 20px 30px;
+}

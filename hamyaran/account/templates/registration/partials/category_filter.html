@@ -1,0 +1,8 @@
+    {% for cat in category %}
+    <li class="nav-item">
+      <a href="{% url 'account:category' cat.slug %}" class="nav-link">
+        <i class="fa fa-circle nav-icon" style="font-size: 7px"></i>
+        <p>{{cat.title}}</p>
+      </a>
+    </li>
+    {% endfor %}
