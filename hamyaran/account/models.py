@@ -176,7 +176,7 @@ class FamilyMember(models.Model):
   birthyear = models.IntegerField(validators=[MinValueValidator(1300),MaxValueValidator(1450)] ,verbose_name='سال تولد')
   birthmonth = models.CharField(max_length=15, choices=MONTH_CHOICES, verbose_name='ماه تولد')
   birthday = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(31)] ,verbose_name='روز تولد')
-  phone = models.IntegerField(verbose_name='شماره همراه')
+  phone = models.CharField(null=True, blank=True, max_length=15, verbose_name='شماره همراه', unique=True)
   gender = models.CharField(max_length=3, choices=GENDER_CHOICES, verbose_name='جنسیت')
   disease = models.CharField(null=True, blank=True, max_length=100, choices=DISEASE_CHOICES, verbose_name='بیماری های زمینه ای')
 

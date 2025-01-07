@@ -4,6 +4,8 @@ from .models import User, Address, Pet, FamilyMember, Medicine
 from services.models import Order
 from django_jalali.forms import jDateField
 from django_jalali.admin.widgets import AdminjDateWidget
+from extensions.utils import jalali_converter
+from django.utils import timezone
     
     
 class ProfileForm(forms.ModelForm):
@@ -89,26 +91,33 @@ class OrderForm(forms.ModelForm):
   class Meta:
     model = Order
     fields = [
-      'service', 'preferred_time', 'special_condition', 'same_gender', 'address', 'order_for', 'order_date'
+        'service', 'preferred_time', 'special_condition', 'same_gender', 'address', 'order_for', 'order_date'
     ]
-
-  order_date = jDateField(widget=AdminjDateWidget(attrs={'placeholder': 'با کلیک در این قسمت تاریخ را انتخاب کنید'}))
-  order_date.label = 'تاریخ'      
 
   def __init__(self, *args, **kwargs):
     user = kwargs.pop('user', None)
     super().__init__(*args, **kwargs)
-    
-    if user:
-      self.fields['address'].queryset = Address.objects.filter(owner=user)
-      self.fields['order_for'].queryset = FamilyMember.objects.filter(parent=user)
 
-    self.fields['order_date'].lable = 'تاریخ'
-    self.fields['service'].lable = 'خدمت'
-    self.fields['preferred_time'].lable = 'زمان ترجیحی'
-    self.fields['special_condition'].lable = 'شرایط خاص'
-    self.fields['same_gender'].lable = 'درمانگر همجنس'
-    self.fields['address'].lable = 'آدرس'
+    # تنظیم فیلترهای سفارشی
+    if user:
+        self.fields['address'].queryset = Address.objects.filter(owner=user)
+        self.fields['order_for'].queryset = FamilyMember.objects.filter(parent=user)
+
+    # تنظیم مقادیر دیفالت
+    self.fields['order_date'].initial =timezone.localtime(timezone.now()).date() # تاریخ امروز برای order_date
+    self.fields['preferred_time'].initial = "00:00"  # زمان پیش‌فرض برای preferred_time
+    self.fields['special_condition'].initial = "هیچ شرایط خاصی وجود ندارد"  # مقدار پیش‌فرض برای special_condition
+    self.fields['order_for'].initial = "خودم"  # اگر کاربر چیزی وارد نکرد، "خودم" را قرار دهید
+
+
+    # تنظیم ویجت‌ها و برچسب‌ها
+    self.fields['order_date'].widget = AdminjDateWidget(attrs={'placeholder': 'با کلیک در این قسمت تاریخ را انتخاب کنید'})
+    self.fields['order_date'].label = 'تاریخ'
+    self.fields['service'].label = 'خدمت'
+    self.fields['preferred_time'].label = 'زمان ترجیحی'
+    self.fields['special_condition'].label = 'شرایط خاص'
+    self.fields['same_gender'].label = 'درمانگر همجنس'
+    self.fields['address'].label = 'آدرس'
 
     self.fields['service'].widget.attrs.update({
       'placeholder': 'لطفا خدمت مورد نظر را انتخاب کنید'

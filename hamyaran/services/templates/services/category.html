@@ -109,7 +109,7 @@
           <h4>{{service.category}}</h4>
           </div>
           <div class="cost">
-          <h4>{{ service.cost|floatformat:0|intword }}</h4>
+          <h4>{{ service.cost|floatformat:0|intcomma }}</h4>
           </div>
         </article>
       {% empty %}
