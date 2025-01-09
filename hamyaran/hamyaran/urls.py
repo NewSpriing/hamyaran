@@ -29,7 +29,7 @@ urlpatterns = [
     path("register/", Register.as_view(), name="register"),
     re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z_\-]+)$', activate, name='activate'),
     path("password_change/", PasswordChange.as_view(), name="password_change"),    
-    path('account/', include('account.urls')),
+    path('', include('account.urls')),
     path('admin/', admin.site.urls),
     path('', include('pwa.urls')),
     path('js-catalog', JavaScriptCatalog.as_view(), name='js-catalog'),

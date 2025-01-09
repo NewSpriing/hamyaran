@@ -4,7 +4,7 @@ from .views import ServiceList, ServiceCreate, category, ServiceUpdate, ServiceD
 app_name = 'account'
 
 urlpatterns = [
-  path('', ServiceList.as_view(), name="home"),
+  path('services/', ServiceList.as_view(), name="home"),
   path('users/', UserListView.as_view(), name='user-list'),
   path('users/add/', UserCreateView.as_view(), name='user-add'),
   path('users/<int:pk>/edit/', UserUpdateView.as_view(), name='user-edit'),
