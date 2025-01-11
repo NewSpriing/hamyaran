@@ -6,7 +6,7 @@ def convert_time_to_timestamp(apps, schema_editor):
     with schema_editor.connection.cursor() as cursor:
         cursor.execute("""
             UPDATE account_prescription
-            SET "start_date" = (current_date + "start_date"::date);  -- Add the current date to the time field
+            SET "start_date" = (current_date::timestamp + "start_date");
         """)
 
 class Migration(migrations.Migration):
