@@ -103,10 +103,10 @@ WSGI_APPLICATION = 'hamyaran.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hamyaran',  # نام پایگاه داده‌ای که ایجاد کردید
-        'USER': 'hamyaran',  # نام کاربری پایگاه داده
-        'PASSWORD': '1990',  # رمز عبور پایگاه داده
-        'HOST': '45.149.76.42',  # یا آدرس سرور PostgreSQL
+        'NAME': config('DB_NAME'),  # نام پایگاه داده‌ای که ایجاد کردید
+        'USER': config('DB_USER'),  # نام کاربری پایگاه داده
+        'PASSWORD': config('PASSWORD'),  # رمز عبور پایگاه داده
+        'HOST': config('DB_HOST'),  # یا آدرس سرور PostgreSQL
         'PORT': '5432',  # پورت پیش‌فرض PostgreSQL
     }
 }
