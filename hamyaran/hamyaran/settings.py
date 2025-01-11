@@ -106,7 +106,7 @@ DATABASES = {
         'NAME': 'hamyaran',  # نام پایگاه داده‌ای که ایجاد کردید
         'USER': 'hamyaran',  # نام کاربری پایگاه داده
         'PASSWORD': '1990',  # رمز عبور پایگاه داده
-        'HOST': 'localhost',  # یا آدرس سرور PostgreSQL
+        'HOST': '45.149.76.42',  # یا آدرس سرور PostgreSQL
         'PORT': '5432',  # پورت پیش‌فرض PostgreSQL
     }
 }
