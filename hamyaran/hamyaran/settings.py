@@ -1,4 +1,3 @@
-
 from pathlib import Path
 from decouple import config
 import os
@@ -6,13 +5,23 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'service-worker.js')
+# مسیرهای استاتیک و مدیا
+STATICFILES_DIRS = [
+    BASE_DIR / 'staticfiles',  # پوشه‌ای که فایل‌های استاتیک در زمان توسعه در آن قرار دارند
+]
+
+STATIC_URL = '/static/'  # آدرس URL برای دسترسی به فایل‌های استاتیک
+STATIC_ROOT = BASE_DIR / 'static'  # پوشه‌ای که فایل‌های استاتیک در هنگام اجرای collectstatic در آن جمع می‌شوند
+
+MEDIA_URL = '/media/'  # آدرس URL برای دسترسی به فایل‌های مدیا
+MEDIA_ROOT = BASE_DIR / 'media'  # مسیر ذخیره‌سازی فایل‌های مدیا
+
+PWA_SERVICE_WORKER_PATH = BASE_DIR / 'staticfiles' / 'js' / 'service-worker.js'
+PWA_SERVICE_WORKER_PATH = str(PWA_SERVICE_WORKER_PATH)  # تبدیل به رشته
 
 LOGIN_REDIRECT_URL = "account:home"
 LOGOUT_REDIRECT_URL = "services:home"
 LOGIN_URL = "login"
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
@@ -21,9 +30,6 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '45.149.76.42']
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -78,25 +84,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hamyaran.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-} """
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),  # نام پایگاه داده‌ای که ایجاد کردید
-        'USER': config('DB_USER'),  # نام کاربری پایگاه داده
-        'PASSWORD': config('PASSWORD'),  # رمز عبور پایگاه داده
-        'HOST': config('DB_HOST'),  # یا آدرس سرور PostgreSQL
-        'PORT': '5432',  # پورت پیش‌فرض PostgreSQL
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': '5432',
     }
 }
 
@@ -105,10 +100,6 @@ DBBACKUP_STORAGE_OPTIONS = {'location': '/var/backups/'}
 
 DBBACKUP_FILENAME_TEMPLATE = 'backup-{datetime}.dump'
 DBBACKUP_MEDIA_FILENAME_TEMPLATE = 'media-backup-{datetime}.tar'
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -125,45 +116,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'fa-IR'
-
 TIME_ZONE = 'Asia/Tehran'
-
 USE_TZ = True
-
 USE_L10N = True
-
 USE_I18N = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-MEDIA_URL = 'media/'
-
-MEDIA_ROOT = BASE_DIR / 'media',
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 AUTH_USER_MODEL = "account.User"
 
-#EMAIL SETTING
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_USE_TLS = True
@@ -171,7 +136,6 @@ EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-#CELERY SETTINGS
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
@@ -205,7 +169,6 @@ PWA_APP_SPLASH_SCREEN = [
 ]
 PWA_APP_DIR = 'rtl'
 PWA_APP_LANG = 'fa-IR'
-
 
 WEBPUSH_SETTINGS = {
     "VAPID_PUBLIC_KEY": "BIT7SPFOzYeu-B4_LPwi_0Q6maYZZAm4RdeX3-x7smauwCSmZC-iP1LnfwNQY5GwkDMRoFX7s4aA4cSLDYkyIHI",

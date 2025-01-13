@@ -1,24 +1,4 @@
-/*-----------------------------------*\
-  #main.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
-
-  /**
-   * colors
-   */
 
   --rich-black-fogra-29: hsl(222, 44%, 8%);
   --middle-blue-green_40: hsla(174, 64%, 71%, 0.4);
@@ -37,10 +17,6 @@
   --white_a10: hsla(0, 0%, 100%, 0.1);
   --black: hsl(0, 0%, 0%);
 
-  /**
-   * typography
-   */
-
   --ff-oswald: 'Oswald', sans-serif;
   --ff-rubik: 'Rubik', sans-serif;
   
@@ -58,7 +34,7 @@
    * spacing
    */
 
-  --section-padding: 120px;
+  --section-padding: 80px;
 
   /**
    * box shadow
@@ -666,9 +642,13 @@ strong {
   flex-shrink: 0;
 }
 
+.tab-content {
+  display: none;
+}
 
-
-
+.tab-content.active {
+  display: block;
+}
 
 /*-----------------------------------*\
   #LISTING
@@ -1138,8 +1118,6 @@ strong {
 
   .container { max-width: 1200px; }
 
-
-
   /**
    * HEADER
    */
@@ -1165,12 +1143,12 @@ strong {
     gap: 8px;
   }
 
-  .navbar-item { border-block-start: none; }
+  .navbar-item { border-block-start: none; transition: ease-in-out;}
 
   .navbar-item:hover, .navbar-item:focus {
-    transform: scale(120%);
+    background-color: transparent;
+    transform: translateY(5px);
   }
-
   .navbar-link {
     --title-md: 1.8rem;
     font-weight: var(--fw-500);
